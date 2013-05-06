@@ -1,0 +1,9 @@
+ebin
+deps
+logs
+erl_crash.dump
+.eunit
+.*.swp
+*.kdev4
+/rel/gateway
+

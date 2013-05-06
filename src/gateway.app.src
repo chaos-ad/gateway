@@ -1,0 +1,35 @@
+{application, gateway, [
+    {description, ""},
+    {vsn, git},
+    {registered, []},
+    {applications, [
+        kernel,
+        stdlib,
+        lager,
+        piqi,
+        ezk,
+        cowboy
+    ]},
+    {mod, {gateway_app, []}},
+    {env, [
+        {protocols, [
+            {tcp, [
+                {acceptors, 5},
+                {bind_port, 5555},
+                {bind_host, {0,0,0,0}},
+                {auth_timeout, 5000}
+            ]},
+            {websockets, [
+                {acceptors, 5},
+                {bind_port, 8081},
+                {bind_host, {0,0,0,0}},
+                {auth_timeout, 5000}
+            ]}
+        ]},
+        {zookeeper_servers, [
+            {localhost, 2181, 5000, 5000},
+            {localhost, 2182, 5000, 5000},
+            {localhost, 2183, 5000, 5000}
+        ]}
+    ]}
+]}.
